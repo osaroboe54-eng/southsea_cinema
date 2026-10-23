@@ -1,3 +1,4 @@
+// views/movie_listing.dart
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
@@ -15,7 +16,9 @@ class MovieListing extends StatelessWidget {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: const SizedBox.shrink(),
+      body: Container(
+        child: const SizedBox.shrink(),
+      ),
     );
   }
 }
