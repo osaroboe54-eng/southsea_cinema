@@ -17,7 +17,20 @@ class MovieListing extends StatelessWidget {
       ),
       drawer: const NavDrawer(),
       body: Container(
-        child: const SizedBox.shrink(),
+        child: Column(
+          children: [
+            const Text('Solo Leveling: ReAwakening'),
+            const Text('116 mins | 15'),
+            const Text(
+                'The weakest hunter in the world gains a mysterious power that lets him level up alone, and nothing is the same again.'),
+            ElevatedButton(
+              onPressed: () {
+                print('Add to order button pressed');
+              },
+              child: const Text('Add to order'),
+            ),
+          ],
+        ),
       ),
     );
   }
