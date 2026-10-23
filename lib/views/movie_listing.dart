@@ -36,7 +36,6 @@ class _MovieListingState extends State<MovieListing> {
                 if (value != null) {
                   setState(() {
                     _ticketQuantity = value;
-                    print('Tickets selected: $_ticketQuantity');
                   });
                 }
               },
