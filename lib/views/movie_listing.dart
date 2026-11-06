@@ -1,10 +1,13 @@
 // views/movie_listing.dart
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
+import 'package:southsea_cinema/models/movie.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
 
 class MovieListing extends StatefulWidget {
-  const MovieListing({super.key});
+  final Movie movie;
+
+  const MovieListing({super.key, required this.movie});
 
   @override
   State<MovieListing> createState() => _MovieListingState();
@@ -13,6 +16,7 @@ class MovieListing extends StatefulWidget {
 class _MovieListingState extends State<MovieListing> {
   int _ticketQuantity = 1;
   String _bookingMessage = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,14 +27,26 @@ class _MovieListingState extends State<MovieListing> {
         elevation: 0,
       ),
       drawer: const NavDrawer(),
-      body: Container(
-        padding: EdgeInsets.all(20.0),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Solo Leveling: ReAwakening'),
-            const Text('116 mins | 15'),
-            const Text(
-                'The weakest hunter in the world gains a mysterious power that lets him level up alone, and nothing is the same again.'),
+            Text(
+              widget.movie.title,
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: cinemaFontWhite,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text('Rated ${widget.movie.ageRating}'),
+            Text(widget.movie.screeningTime),
+            Text(widget.movie.formattedPrice),
+            const SizedBox(height: 12),
+            Text(widget.movie.synopsis),
+            const SizedBox(height: 16),
             DropdownMenu<int>(
               initialSelection: _ticketQuantity,
               onSelected: (int? value) {
@@ -40,7 +56,7 @@ class _MovieListingState extends State<MovieListing> {
                   });
                 }
               },
-              dropdownMenuEntries: [
+              dropdownMenuEntries: const [
                 DropdownMenuEntry(value: 1, label: '1'),
                 DropdownMenuEntry(value: 2, label: '2'),
                 DropdownMenuEntry(value: 3, label: '3'),
@@ -48,17 +64,26 @@ class _MovieListingState extends State<MovieListing> {
                 DropdownMenuEntry(value: 5, label: '5'),
               ],
             ),
+            const SizedBox(height: 8),
             Text('Tickets selected: $_ticketQuantity'),
+            const SizedBox(height: 16),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: cinemaBrand,
+                foregroundColor: cinemaFontWhite,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero,
+                ),
+              ),
               onPressed: () {
                 setState(() {
                   _bookingMessage =
                       'Added $_ticketQuantity tickets to the order';
                 });
-                print(_bookingMessage);
               },
               child: const Text('Add to order'),
             ),
+            const SizedBox(height: 12),
             Text(_bookingMessage),
           ],
         ),

@@ -1,3 +1,4 @@
+// widgets/nav_drawer.dart
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 
@@ -36,7 +37,6 @@ class NavDrawer extends StatelessWidget {
               ),
             ),
             const DrawerTile(title: 'Home', route: '/'),
-            const DrawerTile(title: 'Movie Listing', route: '/listing'),
           ],
         ),
       ),
