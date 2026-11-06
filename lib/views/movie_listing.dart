@@ -24,6 +24,7 @@ class _MovieListingState extends State<MovieListing> {
       ),
       drawer: const NavDrawer(),
       body: Container(
+        padding: EdgeInsets.all(20.0),
         child: Column(
           children: [
             const Text('Solo Leveling: ReAwakening'),
