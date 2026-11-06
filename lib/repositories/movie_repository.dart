@@ -10,7 +10,7 @@ class MovieRepository {
         synopsis:
             'In a world where hunters battle monsters from mysterious gates, Sung Jinwoo is the weakest of them all. After a near-fatal dungeon raid, he gains a secret system that lets him level up without limit. This film recaps the first season of the anime and includes a preview of the next chapter.',
         ageRating: '15',
-        screeningTime: 'Saturday 19:30',
+        screeningTime: 'Saturday 14 Nov 2026 19:30',
         price: 9.50,
         posterImagePath: 'images/solo_leveling.jpg',
       ),
