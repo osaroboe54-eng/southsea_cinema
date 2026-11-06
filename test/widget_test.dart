@@ -5,7 +5,8 @@ import 'package:southsea_cinema/widgets/movie_card.dart';
 
 void main() {
   group('App smoke tests', () {
-    testWidgets('Home page displays the app title', (WidgetTester tester) async {
+    testWidgets('Home page displays the app title',
+        (WidgetTester tester) async {
       await tester.pumpWidget(const SouthseaCinemaApp());
 
       expect(find.text('Southsea Cinema'), findsOneWidget);
@@ -17,8 +18,7 @@ void main() {
 
       expect(find.byType(MovieCard), findsNWidgets(2));
       expect(find.text('Solo Leveling: ReAwakening'), findsOneWidget);
-      expect(
-          find.text('The Eminence in Shadow: Lost Echoes'), findsOneWidget);
+      expect(find.text('The Eminence in Shadow: Lost Echoes'), findsOneWidget);
       expect(find.text('BOOK NOW'), findsNWidgets(2));
     });
   });
